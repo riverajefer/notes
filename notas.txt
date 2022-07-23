@@ -1,0 +1,16 @@
+Notepad
+
+Hacer una aplicación web en angular que pueda crear, eliminar y archivar notas.
+
+Las notas deberán tener las siguientes características:
+Título: convertir texto a mayúsculas,
+no debe aceptar correos como título.
+Descripción: mínimo 25 caracteres máximo 150 caracteres, no deberá dejar escribir al acceder los caracteres.
+Fecha: se debe registrar la fecha y ahora de la creación de la nota.
+​
+Se debe crear un login y un registro
+El aplicativo será responsive
+
+compartir en repo git
+
+Entregar a más tardar el día martes 26 de julio.

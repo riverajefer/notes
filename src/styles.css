@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #272727;
+    background: rgb(247, 251, 252);
+    background: linear-gradient(top, rgba(247, 251, 252, 1) 0%, rgba(217, 237, 242, 1) 40%, rgba(173, 217, 228, 1) 100%);
+}
