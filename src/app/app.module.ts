@@ -12,7 +12,14 @@ import { EditNoteComponent } from './notes/edit-note/edit-note.component';
 import { ListNotesComponent } from './notes/list-notes/list-notes.component';
 import { NoteComponent } from './notes/note/note.component';
 import { MatIconModule } from '@angular/material/icon';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
+import { TextFieldModule } from '@angular/cdk/text-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +36,12 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    TextFieldModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

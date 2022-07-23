@@ -10,16 +10,23 @@ export class NotesService {
   constructor(private localService: LocalService) { }
 
   public saveNote(note: Note) {
-    this.localService.saveData('note', JSON.stringify(note));
+    let notes = this.getNote();
+    if (notes.length > 0) {
+      notes.push(note);
+    } else {
+      notes = [note];
+    }
+
+    this.localService.saveData('notes', JSON.stringify(notes));
   }
 
-  public getNote(): Note  {
-    const data = this.localService.getData('note');
+  public getNote(): Note[] {
+    const data = this.localService.getData('notes');
     return JSON.parse(data || '{}');
   }
 
   public removeNote() {
-    this.localService.removeData('note');
+    this.localService.removeData('notes');
   }
 
   public clearNotes() {
