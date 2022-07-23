@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Note } from '../Models/Notes';
+import { NotesService } from '../services/notes.service';
 
 
 @Component({
@@ -11,12 +12,15 @@ export class NoteComponent implements OnInit {
 
   @Input() note!: Note;
 
-  constructor() {
+  constructor(private notesService: NotesService) {
   }
 
   ngOnInit(): void {
     console.log('this.note', this.note)
+  }
 
+  public onArchiveNote(note: Note) {
+    this.notesService.archiveNote(note);
   }
 
 }

@@ -12,8 +12,7 @@ import { EditNoteComponent } from './notes/edit-note/edit-note.component';
 import { ListNotesComponent } from './notes/list-notes/list-notes.component';
 import { NoteComponent } from './notes/note/note.component';
 import { MatIconModule } from '@angular/material/icon';
-
-
+import {MatDialogModule} from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +28,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatSliderModule,
     MatCardModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
