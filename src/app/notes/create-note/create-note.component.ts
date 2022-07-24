@@ -4,6 +4,7 @@ import { Note } from '../Models/Notes';
 import { NotesService } from '../services/notes.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { IndexNoteComponent } from '../index-note/index-note.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-create-note',
@@ -18,11 +19,9 @@ export class CreateNoteComponent implements OnInit {
   });
 
   constructor(private formBuilder: FormBuilder, private notesService: NotesService, public dialogRef: MatDialogRef<IndexNoteComponent>) {
-
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   public onSubmit(): void {
     console.log('submit');
@@ -34,9 +33,11 @@ export class CreateNoteComponent implements OnInit {
       date: new Date(),
       archive: false
     }
+
     this.notesService.saveNote(note);
     this.createNoteForm.reset();
     this.dialogRef.close();
+    this.notesService.getNotes();
   }
 
 }

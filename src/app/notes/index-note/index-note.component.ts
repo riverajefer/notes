@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import { CreateNoteComponent } from '../create-note/create-note.component';
-
+import { NotesService } from '../services/notes.service';
 @Component({
   selector: 'app-index-note',
   templateUrl: './index-note.component.html',
@@ -9,7 +9,7 @@ import { CreateNoteComponent } from '../create-note/create-note.component';
 })
 export class IndexNoteComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private notesService: NotesService) { }
 
   ngOnInit(): void {
   }
@@ -19,6 +19,7 @@ export class IndexNoteComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
+      this.notesService.getNotes();
     });
   }
 

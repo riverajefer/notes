@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Note, Notes } from '../Models/Notes';
-
+import { Note } from '../Models/Notes';
+import { NotesService } from '../services/notes.service';
 @Component({
   selector: 'app-list-notes',
   templateUrl: './list-notes.component.html',
@@ -8,36 +8,15 @@ import { Note, Notes } from '../Models/Notes';
 })
 export class ListNotesComponent implements OnInit {
 
-  public notes: Note[] = [
-    {
-      id: 1,
-      title: 'Note 1',
-      description: 'This is the first note',
-      date: new Date(),
-      archive: false
-    },
-    {
-      id: 2,
-      title: 'Note 2',
-      description: 'This is the second note',
-      date: new Date(),
-      archive: false
-    },
-    {
-      id: 3,
-      title: 'Note 3',
-      description: 'This is the third note',
-      date: new Date(),
-      archive: false
-    }
+  public notes!: Note[];
 
-  ];
-
-  constructor() {
-
-  }
+  constructor(public notesService: NotesService) {}
 
   ngOnInit(): void {
+    this.notesService.changeEvent.subscribe((newNote) => {
+      console.log('newNote', newNote)
+      this.notes = this.notesService.getNotes();
+    });
 
   }
 }
