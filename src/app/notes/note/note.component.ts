@@ -20,6 +20,7 @@ export class NoteComponent implements OnInit {
   }
 
   public onArchiveNote(note: Note) {
+    console.log('onArchiveNote', note);
     this.notesService.archiveNote(note);
   }
 

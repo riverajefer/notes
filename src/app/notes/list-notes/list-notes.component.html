@@ -1,3 +1,16 @@
 <div class="notes">
-    <app-note *ngFor="let note of notes" [note]="note"></app-note>
+    <mat-tab-group mat-align-tabs="start">
+        <mat-tab label="NOTAS ACTIVAS">
+            <div *ngFor="let note of notes">
+                <app-note [note]="note" *ngIf="!note.archive"></app-note>
+            </div>
+        </mat-tab>
+        <mat-tab label="NOTAS ARCHIVADAS">
+            <div *ngFor="let note of notes">
+                <app-note [note]="note" *ngIf="note.archive"></app-note>
+            </div>
+        </mat-tab>
+
+    </mat-tab-group>
+
 </div>

@@ -18,6 +18,7 @@ import { MatInputModule } from '@angular/material/input';
 
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatTabsModule } from '@angular/material/tabs';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TextFieldModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
