@@ -1,18 +1,30 @@
-<mat-dialog-content class="mat-typography">
-
+<mat-dialog-content>
     <div class="create-note">
         <h2 mat-dialog-title>CREAR NOTA</h2>
         <form class="note-form" [formGroup]="createNoteForm" (ngSubmit)="onSubmit()">
             <mat-form-field class="note-full-width" appearance="fill">
-                <mat-label>Titulo</mat-label>
-                <input matInput placeholder="Titulo" type="text" formControlName="title">
+                <mat-label for="title">Titulo</mat-label>
+                <input matInput required placeholder="Titulo" type="text" formControlName="title" autocomplete="off">
+                <mat-hint *ngIf="this.createNoteForm.get('title')?.errors?.['required']" align="end">
+                    El titulo es requerido
+                </mat-hint>
             </mat-form-field>
 
             <mat-form-field class="note-full-width" appearance="fill">
                 <mat-label>Descripción</mat-label>
-                <textarea matInput placeholder="Descripción" formControlName="description"></textarea>
+                <textarea matInput maxlength="150" minlength="25" required #description placeholder="Descripción" formControlName="description"></textarea>
+                <mat-hint align="end">{{description.value.length}} / 150</mat-hint>
+                <mat-hint align="start">
+                    <span *ngIf="this.createNoteForm.get('description')?.errors?.['minlength']">
+            (La descripción debe tener al menos 25 caracteres)
+          </span>
+                    <span *ngIf="this.createNoteForm.get('description')?.errors?.['maxlength']">
+            (La descripción no puede tener más de 150 caracteres)
+          </span>
+                </mat-hint>
             </mat-form-field>
-            <button mat-button type="submit">GUARDAR</button>
+
+            <button mat-button type="submit" [disabled]="!createNoteForm.valid" color="primary">GUARDAR</button>
         </form>
     </div>
 </mat-dialog-content>

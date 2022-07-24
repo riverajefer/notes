@@ -16,7 +16,13 @@ export class ListNotesComponent implements OnInit {
     this.notesService.changeEvent.subscribe((newNote) => {
       console.log('newNote', newNote)
       this.notes = this.notesService.getNotes();
+      this.sortNotes();
     });
+  }
 
+  public sortNotes() {
+    this.notes.sort((a, b) => {
+      return <any>new Date(b.date) - <any>new Date(a.date);
+    });
   }
 }

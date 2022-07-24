@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Note } from '../Models/Notes';
 import { NotesService } from '../services/notes.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { IndexNoteComponent } from '../index-note/index-note.component';
-import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-create-note',
@@ -14,14 +14,27 @@ import { Subscription } from 'rxjs';
 export class CreateNoteComponent implements OnInit {
 
   public createNoteForm = this.formBuilder.group({
-    title: '',
-    description: ''
+    title: ['',
+      Validators.compose([
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(15),
+        Validators.pattern('[-_ a-zA-Z0-9]*')
+      ])],
+    description: ['',
+      Validators.compose([
+        Validators.required,
+        Validators.minLength(25),
+        Validators.maxLength(150)])],
   });
 
-  constructor(private formBuilder: FormBuilder, private notesService: NotesService, public dialogRef: MatDialogRef<IndexNoteComponent>) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private notesService: NotesService,
+    public dialogRef: MatDialogRef<IndexNoteComponent>) {
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   public onSubmit(): void {
     console.log('submit');
