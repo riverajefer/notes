@@ -1,6 +1,6 @@
-# Notes
+# Proyecto Notes
 
-Proyecto de Notas generado con [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
+Proyecto de Notas con [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
 
 # Autor 
 Jefferson Rivera Patiño  
@@ -12,12 +12,12 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 
 ## Storage
 
-La data se guarda en localstorage
+La data se guarda en localStorage
 
 ## Demo 
 https://riverajefer.github.io/notes/ 
 
-## Imágenes Demo
+## Imágenes demo
 
 ### Notas
 ![alt text](img_readme/home.png)
