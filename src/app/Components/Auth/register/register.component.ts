@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
@@ -9,7 +9,7 @@ import { UserAuth } from '../Models/User';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent  {
 
 
   public isPasswordSame = false;
@@ -53,9 +53,6 @@ export class RegisterComponent implements OnInit {
     const { value: password } = formGroup.get('password') as FormControl;
     const { value: confirmPassword } = formGroup.get('password_confirm') as FormControl;
     return password === confirmPassword ? null : { passwordNotMatch: true };
-  }
-
-  ngOnInit(): void {
   }
 
 

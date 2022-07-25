@@ -36,9 +36,10 @@ mat-form-field {
     color: red;
 }
 
-.auth-default {
-    p,
-    i {
-        color: #939292;
-    }
+p {
+    color: #939292;
+}
+
+i {
+    color: #939292;
 }

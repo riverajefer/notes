@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Note } from '../Models/Notes';
 import { NotesService } from '../services/notes.service';
@@ -13,7 +13,7 @@ import * as uuid from 'uuid';
   templateUrl: './create-note.component.html',
   styleUrls: ['./create-note.component.scss']
 })
-export class CreateNoteComponent implements OnInit {
+export class CreateNoteComponent {
 
   public createNoteForm = this.formBuilder.group({
     title: ['NOTA',
@@ -36,7 +36,6 @@ export class CreateNoteComponent implements OnInit {
     public dialogRef: MatDialogRef<IndexNoteComponent>) {
   }
 
-  ngOnInit(): void { }
 
   public onSubmit(): void {
     console.log('submit');
