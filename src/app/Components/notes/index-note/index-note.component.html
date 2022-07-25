@@ -1,20 +1,27 @@
 <section class="page-wrap">
-    <header>
-        <div>
-            <h1>Notas</h1>
-            <p>
-                {{ user? user.name: 'JHON DOE' }}
-            </p>
-            <button mat-button color="primary" (click)="onLogout()">Logout</button>
-        </div>
-    </header>
-    <div class="btn-create">
-        <button mat-button mat-raised mat-stroked-button (click)="onOpenDialogCreateNote()" color="primary">
-    <mat-icon>note_add</mat-icon>
 
-    CREAR NOTA
-  </button>
-    </div>
+
+
+
+    <mat-toolbar>
+
+        <button mat-button mat-raised mat-stroked-button (click)="onOpenDialogCreateNote()" color="primary">
+      <mat-icon>note_add</mat-icon> CREAR NOTA
+    </button>
+        <span class="spacer"></span>
+        <button mat-icon-button class="example-icon">
+          <mat-icon>event_note</mat-icon>
+        </button>
+        <span>NOTAS</span>
+
+        <span class="spacer"></span>
+        <span>{{ user? user.name: 'JHON DOE' }}</span>
+
+
+        <button mat-button mat-raised (click)="onLogout()" color="primary">
+      <mat-icon>logout</mat-icon> LOGOUT
+    </button>
+    </mat-toolbar>
 
 
     <app-list-notes>

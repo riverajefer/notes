@@ -22,6 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTabsModule } from '@angular/material/tabs';
 import { LoginComponent } from './Components/Auth/login/login.component';
 import { RegisterComponent } from './Components/Auth/register/register.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { RegisterComponent } from './Components/Auth/register/register.component
     ReactiveFormsModule,
     MatTabsModule,
     MatSnackBarModule,
-    MatDividerModule
+    MatDividerModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

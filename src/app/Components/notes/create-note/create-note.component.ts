@@ -16,14 +16,14 @@ import * as uuid from 'uuid';
 export class CreateNoteComponent implements OnInit {
 
   public createNoteForm = this.formBuilder.group({
-    title: ['',
+    title: ['NOTA',
       Validators.compose([
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(15),
         Validators.pattern('[-_ a-zA-Z0-9]*')
       ])],
-    description: ['',
+    description: ['Lore ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.',
       Validators.compose([
         Validators.required,
         Validators.minLength(25),
