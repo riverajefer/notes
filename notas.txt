@@ -19,4 +19,5 @@ Entregar a más tardar el día martes 26 de julio.
 https://riverajefer.github.io/notes/notes/
 
 
-ng build  --base-href ="https://riverajefer.github.io/notes/"
+ng build --base-href=/notes/
+npx angular-cli-ghpages --dir=dist/notes

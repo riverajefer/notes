@@ -6,15 +6,13 @@ Proyecto de Notas generado con [Angular CLI](https://github.com/angular/angular-
 Jefferson Rivera Patiño  
 riverajefer@gmail.com
 
-
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. 
 
+## Storage
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+La data se guarda en localstorage
 
 ## Demo 
 https://riverajefer.github.io/notes/ 
