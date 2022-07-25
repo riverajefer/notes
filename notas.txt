@@ -14,3 +14,6 @@ El aplicativo será responsive
 compartir en repo git
 
 Entregar a más tardar el día martes 26 de julio.
+
+
+https://riverajefer.github.io/notes/notes/
