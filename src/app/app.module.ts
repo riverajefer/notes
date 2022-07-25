@@ -23,6 +23,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { LoginComponent } from './Components/Auth/login/login.component';
 import { RegisterComponent } from './Components/Auth/register/register.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatTabsModule,
     MatSnackBarModule,
     MatDividerModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

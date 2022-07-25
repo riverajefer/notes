@@ -1,10 +1,6 @@
 <section class="page-wrap">
 
-
-
-
-    <mat-toolbar>
-
+    <mat-toolbar class="toolbar-menu">
         <button mat-button mat-raised mat-stroked-button (click)="onOpenDialogCreateNote()" color="primary">
       <mat-icon>note_add</mat-icon> CREAR NOTA
     </button>
@@ -22,6 +18,30 @@
       <mat-icon>logout</mat-icon> LOGOUT
     </button>
     </mat-toolbar>
+
+    <mat-toolbar class="menu-toolbar-responsive">
+        <button mat-icon-button [matMenuTriggerFor]="menu" color="primary" aria-label="Example icon-button with a menu">
+        <mat-icon class="example-icon">menu</mat-icon>
+        <span> NOTAS</span>
+      </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="onOpenDialogCreateNote()">
+          <mat-icon>note_add</mat-icon>
+          <span>Crear Nota</span>
+        </button>
+
+            <button mat-menu-item (click)="onLogout()">
+          <mat-icon>logout</mat-icon>
+          <span>Logout</span>
+        </button>
+            <button mat-menu-item disabled>
+          <mat-icon>person_outline</mat-icon>
+          <span>{{ user? user.name: 'JHON DOE' }}</span>
+        </button>
+        </mat-menu>
+    </mat-toolbar>
+
+
 
 
     <app-list-notes>

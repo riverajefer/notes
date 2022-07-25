@@ -119,3 +119,21 @@ header p {
 .spacer {
     flex: 1 1 auto;
 }
+
+.mat-sidenav-content {
+    font-size: 200%;
+    text-align: center;
+}
+
+.menu-toolbar-responsive {
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .toolbar-menu {
+        display: none;
+    }
+    .menu-toolbar-responsive {
+        display: block;
+    }
+}

@@ -13,19 +13,16 @@
 }
 
 footer {
+    background-color: #F7FBFC;
     text-align: center;
-    width: 100%;
+    padding: 30px;
     margin: 0 auto;
     height: 60px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    mat-toolbar {
-        span {
-            font-style: italic;
-            font-size: 15px;
-            color: #615d5d;
-            font-family: 'Josefin Sans', sans-serif;
-        }
+    position: relative;
+    span {
+        font-style: italic;
+        font-size: 15px;
+        color: #615d5d;
+        font-family: 'Josefin Sans', sans-serif;
     }
 }
