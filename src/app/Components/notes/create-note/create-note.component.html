@@ -14,7 +14,7 @@
                 <mat-label>Descripción</mat-label>
                 <textarea matInput maxlength="150" minlength="25" required #description placeholder="Descripción" formControlName="description"></textarea>
                 <mat-hint align="end">{{description.value.length}} / 150</mat-hint>
-                <mat-hint align="start">
+                <mat-hint align="start" class="alerts">
                     <span *ngIf="this.createNoteForm.get('description')?.errors?.['minlength']">
             (La descripción debe tener al menos 25 caracteres)
           </span>
@@ -24,7 +24,7 @@
                 </mat-hint>
             </mat-form-field>
 
-            <button mat-button mat-stroked-button type="submit" [disabled]="!createNoteForm.valid" color="primary">GUARDAR</button>
+            <button mat-button mat-stroked-button type="submit" class="btn-submit" [disabled]="!createNoteForm.valid" color="primary">GUARDAR</button>
         </form>
     </div>
 </mat-dialog-content>

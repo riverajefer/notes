@@ -6,11 +6,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { CreateNoteComponent } from './notes/create-note/create-note.component';
-import { IndexNoteComponent } from './notes/index-note/index-note.component';
-import { EditNoteComponent } from './notes/edit-note/edit-note.component';
-import { ListNotesComponent } from './notes/list-notes/list-notes.component';
-import { NoteComponent } from './notes/note/note.component';
+import { CreateNoteComponent } from './Components/notes/create-note/create-note.component';
+import { IndexNoteComponent } from './Components/notes/index-note/index-note.component';
+import { ListNotesComponent } from './Components/notes/list-notes/list-notes.component';
+import { NoteComponent } from './Components/notes/note/note.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -28,7 +27,6 @@ import { MatTabsModule } from '@angular/material/tabs';
     AppComponent,
     CreateNoteComponent,
     IndexNoteComponent,
-    EditNoteComponent,
     ListNotesComponent,
     NoteComponent
   ],

@@ -7,7 +7,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-index-note',
   templateUrl: './index-note.component.html',
-  styleUrls: ['./index-note.component.css']
+  styleUrls: ['./index-note.component.scss']
 })
 export class IndexNoteComponent implements OnInit {
 
