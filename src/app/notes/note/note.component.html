@@ -2,20 +2,22 @@
 
     <mat-card color="primary">
         <mat-card-title color="primary">{{ note.title | uppercase }}</mat-card-title>
-        <mat-card-subtitle>{{ note.date }}</mat-card-subtitle>
+        <mat-card-subtitle> <i>{{ onDateNote(note.date) }}</i></mat-card-subtitle>
         <mat-card-content>
             <p>
                 {{ note.description }}
             </p>
         </mat-card-content>
         <mat-card-actions>
-            <button mat-button color="warn">
-        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home">delete</mat-icon>
+            <button mat-button color="warn" (click)="onRemoveNote(note)">
+        <mat-icon >delete</mat-icon>
         ELIMINAR
       </button>
-            <button mat-button (click)="onArchiveNote(note)">
-        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home">archive</mat-icon>
-        ARCHIVAR
+            <button mat-button mat-flat-button (click)="onToggleArchiveNote(note)">
+        <mat-icon>
+          {{ !note.archive ? 'archive' : 'refresh' }}
+          </mat-icon>
+        {{ note.archive ? 'DES-ARCHIVAR' : 'ARCHIVAR' }}
       </button>
         </mat-card-actions>
 

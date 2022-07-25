@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Note } from '../Models/Notes';
 import { NotesService } from '../services/notes.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { IndexNoteComponent } from '../index-note/index-note.component';
+
+import * as uuid from 'uuid';
 
 
 @Component({
@@ -40,7 +42,7 @@ export class CreateNoteComponent implements OnInit {
     console.log('submit');
     console.log(this.createNoteForm.value);
     const note: Note = {
-      id: 1,
+      id: uuid.v4(),
       title: this.createNoteForm.value.title,
       description: this.createNoteForm.value.description,
       date: new Date(),

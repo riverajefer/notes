@@ -1,11 +1,21 @@
 <div class="notes">
     <mat-tab-group mat-align-tabs="start">
-        <mat-tab label="NOTAS ACTIVAS">
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <mat-icon color="primary" class="tab-icon">event_note</mat-icon>
+                NOTAS ACTIVAS
+            </ng-template>
+
             <div *ngFor="let note of notes">
                 <app-note [note]="note" *ngIf="!note.archive"></app-note>
             </div>
         </mat-tab>
-        <mat-tab label="NOTAS ARCHIVADAS">
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <mat-icon color="warn" class="tab-icon">event_busy</mat-icon>
+                NOTAS ARCHIVADAS
+            </ng-template>
+
             <div *ngFor="let note of notes">
                 <app-note [note]="note" *ngIf="note.archive"></app-note>
             </div>

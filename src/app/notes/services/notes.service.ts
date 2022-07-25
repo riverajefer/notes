@@ -7,37 +7,56 @@ import { BehaviorSubject } from "rxjs";
   providedIn: 'root'
 })
 export class NotesService {
+  private static NOTES = 'notes';
 
   private noteSource = new BehaviorSubject<Note[]>([]);
   public changeEvent = this.noteSource.asObservable();
 
   constructor(private localService: LocalService) { }
 
-  public saveNote(note: Note): void  {
-    let notes = this.getNote();
+  public saveNote(note: Note): void {
+    let notes = this.getNotes();
     if (notes.length > 0) {
       notes.push(note);
     } else {
       notes = [note];
     }
 
-    this.localService.saveData('notes', JSON.stringify(notes));
+    this.localService.saveData(NotesService.NOTES, JSON.stringify(notes));
     this.noteSource.next([note]);
+  }
+
+  public updateNote(note: Note) {
+    const newNotes = this.getNotes().map(obj => {
+      if (obj.id === note.id) {
+        return { ...obj, ...note };
+      }
+      return obj;
+    });
+    this.localService.saveData(NotesService.NOTES, JSON.stringify(newNotes));
+
   }
 
 
   public getNote(): Note[] {
-    const data = this.localService.getData('notes');
+    const data = this.localService.getData(NotesService.NOTES);
     return JSON.parse(data || '{}');
   }
 
   public getNotes(): Note[] {
-    const data = this.localService.getData('notes');
+    const data = this.localService.getData(NotesService.NOTES);
     return JSON.parse(data || '{}');
   }
 
-  public removeNote() {
-    this.localService.removeData('notes');
+  public removeNote(note: Note) {
+    let notes = this.getNotes();
+    const index = notes.findIndex(obj => {
+      return obj.id === note.id;
+    })
+    if (index !== -1) notes.splice(index, 1);
+
+    this.localService.saveData(NotesService.NOTES, JSON.stringify(notes));
+    this.noteSource.next([note]);
   }
 
   public clearNotes() {
@@ -46,7 +65,14 @@ export class NotesService {
 
   public archiveNote(note: Note) {
     note.archive = true;
-    this.saveNote(note);
+    this.updateNote(note);
+    this.noteSource.next([note]);
+  }
+
+  public desArchiveNote(note: Note) {
+    note.archive = false;
+    this.updateNote(note);
+    this.noteSource.next([note]);
   }
 
 }
