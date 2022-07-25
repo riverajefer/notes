@@ -25,4 +25,9 @@ export class ListNotesComponent implements OnInit {
       return <any>new Date(b.date) - <any>new Date(a.date);
     });
   }
+
+  public countNotesByStatusArchive(status: boolean) {
+    return this.notes.filter(note => note.archive === status).length;
+  }
 }
+

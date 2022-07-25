@@ -3,7 +3,7 @@
         <mat-tab>
             <ng-template mat-tab-label>
                 <mat-icon color="primary" class="tab-icon">event_note</mat-icon>
-                NOTAS ACTIVAS
+                NOTAS ACTIVAS ({{ countNotesByStatusArchive(false) }})
             </ng-template>
 
             <div *ngFor="let note of notes">
@@ -13,7 +13,7 @@
         <mat-tab>
             <ng-template mat-tab-label>
                 <mat-icon color="warn" class="tab-icon">event_busy</mat-icon>
-                NOTAS ARCHIVADAS
+                NOTAS ARCHIVADAS ({{ countNotesByStatusArchive(true) }})
             </ng-template>
 
             <div *ngFor="let note of notes">
