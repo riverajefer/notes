@@ -34,7 +34,6 @@ export class NotesService {
       return obj;
     });
     this.localService.saveData(NotesService.NOTES, JSON.stringify(newNotes));
-
   }
 
 
@@ -57,6 +56,10 @@ export class NotesService {
 
     this.localService.saveData(NotesService.NOTES, JSON.stringify(notes));
     this.noteSource.next([note]);
+  }
+
+  public hasNotes(): boolean {
+    return this.getNotes().length > 0;
   }
 
   public clearNotes() {

@@ -1,6 +1,6 @@
-<!-- <app-index-note></app-index-note> -->
+<app-index-note *ngIf="isAuthenticated"></app-index-note>
 
-<section class="page-auth">
+<section class="page-auth" *ngIf="!isAuthenticated">
     <h1>APP NOTES</h1>
     <mat-divider></mat-divider>
     <mat-tab-group>

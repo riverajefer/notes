@@ -1,18 +1,21 @@
 import { Input, Component, Output, OnInit, EventEmitter } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
 import { FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
+import { UserAuth } from '../Models/User';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
 
-  @Input() error!: string | null;
 
   @Output() submitEM = new EventEmitter();
-  constructor(private formBuilder: FormBuilder) { }
+  public loginError = false;
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService) { }
 
   ngOnInit(): void {
   }
@@ -31,7 +34,17 @@ export class LoginComponent implements OnInit {
 
   submit() {
     if (this.loginForm.valid) {
-      // this.submitEM.emit(this.form.value);
+      const userAuth: UserAuth = {
+        email: this.loginForm.value.email,
+        password: this.loginForm.value.password,
+      }
+      this.authService.login(userAuth).then(() => {
+        console.log('login ok');
+        this.loginError = false;
+      }).catch(() => {
+        this.loginError = true;
+        console.log('login error');
+      });
     }
   }
 

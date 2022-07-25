@@ -20,14 +20,20 @@ export class ListNotesComponent implements OnInit {
     });
   }
 
-  public sortNotes() {
-    this.notes.sort((a, b) => {
-      return <any>new Date(b.date) - <any>new Date(a.date);
-    });
+  public sortNotes(): Note[] {
+    if(this.notesService.hasNotes())   {
+      this.notes.sort((a, b) => {
+        return <any>new Date(b.date) - <any>new Date(a.date);
+      });
+    }
+    return [];
   }
 
-  public countNotesByStatusArchive(status: boolean) {
-    return this.notes.filter(note => note.archive === status).length;
+  public countNotesByStatusArchive(status: boolean): number {
+    if(this.notesService.hasNotes())  {
+      return this.notes.filter(note => note.archive === status).length;
+    }
+    return 0;
   }
 }
 

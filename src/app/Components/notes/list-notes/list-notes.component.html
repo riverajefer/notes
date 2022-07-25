@@ -1,5 +1,5 @@
 <div class="notes">
-    <mat-tab-group mat-align-tabs="start">
+    <mat-tab-group mat-align-tabs="start" *ngIf="notes.length>0">
         <mat-tab>
             <ng-template mat-tab-label>
                 <mat-icon color="primary" class="tab-icon">event_note</mat-icon>

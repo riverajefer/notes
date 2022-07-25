@@ -20,10 +20,15 @@
                 </mat-hint>
             </mat-form-field>
 
-
-            <p *ngIf="error" class="error">
-                {{ error }}
+            <p class="error-login">
+                {{ loginError? 'Usuario o contraseña incorrectos': '' }}
             </p>
+
+            <div class="auth-default">
+                <p>Para pruebas:</p>
+                <i>Email: user@mail.com</i> <br>
+                <i>Password: 1234</i> <br>
+            </div>
 
             <div class="button">
                 <button type="submit" [disabled]="!loginForm.valid" mat-stroked-button mat-button color="primary">LOGIN</button>

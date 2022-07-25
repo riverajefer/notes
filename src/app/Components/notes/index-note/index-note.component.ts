@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateNoteComponent } from '../create-note/create-note.component';
-import { NotesService } from '../services/notes.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from '../../Auth/services/auth.service';
 
 @Component({
   selector: 'app-index-note',
@@ -11,7 +11,12 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class IndexNoteComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, private notesService: NotesService, private _snackBar: MatSnackBar) { }
+  constructor(
+    public dialog: MatDialog,
+    private _snackBar: MatSnackBar,
+    private authService: AuthService
+  ) { }
+
 
   ngOnInit(): void {
   }
@@ -26,6 +31,10 @@ export class IndexNoteComponent implements OnInit {
 
   private openSnackBar() {
     this._snackBar.open('Nota creada', 'Cerrar');
+  }
+
+  public onLogout() {
+    this.authService.logout();
   }
 
 }
