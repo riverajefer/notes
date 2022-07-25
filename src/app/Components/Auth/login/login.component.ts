@@ -1,4 +1,4 @@
-import { Input, Component, Output, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { UserAuth } from '../Models/User';
@@ -11,7 +11,6 @@ import { UserAuth } from '../Models/User';
 export class LoginComponent implements OnInit {
 
 
-  @Output() submitEM = new EventEmitter();
   public loginError = false;
   constructor(
     private formBuilder: FormBuilder,
@@ -38,6 +37,7 @@ export class LoginComponent implements OnInit {
         email: this.loginForm.value.email,
         password: this.loginForm.value.password,
       }
+
       this.authService.login(userAuth).then(() => {
         console.log('login ok');
         this.loginError = false;

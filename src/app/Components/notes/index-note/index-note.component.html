@@ -2,7 +2,9 @@
     <header>
         <div>
             <h1>Notas</h1>
-            <p>Jefferson Rivera</p>
+            <p>
+                {{ user? user.name: 'JHON DOE' }}
+            </p>
             <button mat-button color="primary" (click)="onLogout()">Logout</button>
         </div>
     </header>

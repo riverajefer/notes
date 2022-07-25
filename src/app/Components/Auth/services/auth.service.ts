@@ -9,6 +9,7 @@ import { UserAuth } from '../Models/User';
 export class AuthService {
 
   private static TOKEN = 'token';
+  private static USER = 'user';
   private authSource = new BehaviorSubject<boolean>(false!);
   public changeEvent = this.authSource.asObservable();
 
@@ -18,7 +19,15 @@ export class AuthService {
     console.log('user', user);
 
     return new Promise<boolean>((resolve, reject) => {
-      if (user.email === 'user@mail.com' && user.password === '1234') {
+      let email = 'user@mail.com';
+      let password = '1234';
+
+      if(this.getUser()) {
+        email = this.getUser().email;
+        password = this.getUser().password;
+      }
+
+      if (user.email === email && user.password === password) {
         this.localService.setToken(AuthService.TOKEN, '1234');
         this.authSource.next(true);
         resolve(true);
@@ -31,8 +40,10 @@ export class AuthService {
   public isAuthenticated(): boolean {
     const token = this.localService.getToken(AuthService.TOKEN);
     if(token)  {
+      this.authSource.next(true);
       return true;
     }
+    this.authSource.next(false);
     return false;
   }
 
@@ -42,8 +53,15 @@ export class AuthService {
   }
 
   public register(user: UserAuth): void {
-    console.log('user', user);
+    const data = JSON.stringify(user);
+    this.localService.saveData(AuthService.USER, data);
     this.localService.setToken(AuthService.TOKEN, '1234');
+    this.authSource.next(true);
+  }
+
+  public getUser(): UserAuth {
+    const data = this.localService.getData(AuthService.USER);
+    return JSON.parse(data!);
   }
 
 

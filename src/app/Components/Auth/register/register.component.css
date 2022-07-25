@@ -23,6 +23,22 @@ mat-card-content {
 }
 
 .button {
+    margin: 30px 0px;
     display: flex;
     justify-content: flex-end;
+}
+
+mat-form-field {
+    margin: 20px 0px;
+}
+
+.error-login {
+    color: red;
+}
+
+.auth-default {
+    p,
+    i {
+        color: #939292;
+    }
 }

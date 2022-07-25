@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { CreateNoteComponent } from '../create-note/create-note.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../../Auth/services/auth.service';
+import { UserAuth } from '../../Auth/Models/User';
 
 @Component({
   selector: 'app-index-note',
@@ -10,6 +11,8 @@ import { AuthService } from '../../Auth/services/auth.service';
   styleUrls: ['./index-note.component.scss']
 })
 export class IndexNoteComponent implements OnInit {
+
+  public user!: UserAuth;
 
   constructor(
     public dialog: MatDialog,
@@ -19,6 +22,7 @@ export class IndexNoteComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.user = this.authService.getUser();
   }
 
   public onOpenDialogCreateNote() {
