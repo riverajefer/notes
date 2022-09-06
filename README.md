@@ -2,9 +2,6 @@
 
 Proyecto de Notas con [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
 
-# Autor 
-Jefferson Rivera Patiño  
-riverajefer@gmail.com
 
 ## Development server
 
